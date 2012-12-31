@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'capybara/rspec'
 
  
 
@@ -11,10 +12,6 @@ require 'rspec/autorun'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
-
-
-  include Capybara::DSL # workaround for NoMethodError:undefined method `visit' for #<RSpec::Core::ExampleGroup::Nested_1
-                        # generates error "including Capybara::DSL in the global scope is not recommended!"
 
   # ## Mock Framework
   #
@@ -42,4 +39,11 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+end
+
+module ::RSpec::Core
+  class ExampleGroup
+    include Capybara::DSL
+    include Capybara::RSpecMatchers
+  end
 end

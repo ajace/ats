@@ -5,7 +5,7 @@ describe "StaticPages" do
 
   describe "GET /static_pages/about" do
     it "About page should have content 'Applicant Tracking System'" do
-      visit('/static_pages/about')
+      visit '/static_pages/about'
       page.should have_content('Applicant Tracking System')
     end
   end
