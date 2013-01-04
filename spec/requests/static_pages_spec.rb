@@ -12,11 +12,6 @@ describe "Static pages" do
     it "should have the right title" do
 	  	visit '/static_pages/about'
 	  	page.should have_selector('title', :text => "Applicant Tracking System")
-      # the above generates a bug in Capybara 2.0. I also read the bug but did not think to go back (hence Mr. Hartl's request in the very beginning of his tutorial to set the gems to the right version.)
-      # http://stackoverflow.com/questions/14042731/rspec-not-matching-title
-      # response.should contain("Applicant Tracking System"); still incorrect
-      # response.should have_selector('title', :text => "Applicant Tracking System")
-      # response.should have_title("Applicant Tracking System")
   	end
   end
 
