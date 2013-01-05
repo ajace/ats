@@ -4,3 +4,5 @@ TODO:
 Dashboard  
 Candidates  
 Message Board  
+
+Add Twitter Bootstrap for quick styling
