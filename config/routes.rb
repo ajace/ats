@@ -1,6 +1,9 @@
 Ats::Application.routes.draw do
   
+  get "users/new"
+
   match '/about', to: 'static_pages#about'
+  match '/signup', to: 'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
