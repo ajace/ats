@@ -1,18 +1,14 @@
 require 'spec_helper'
-# include Capybara::DSL
 
 describe "Static pages" do
 
-  describe "About page" do
-    it "should have content 'Applicant Tracking System'" do
-      visit '/static_pages/about'
-      page.should have_content('About')
-    end
+  subject { page }
 
-    it "should have the right title" do
-	  	visit '/static_pages/about'
-	  	page.should have_selector('title', :text => "Applicant Tracking System")
-  	end
+  describe "About page" do
+    before { visit about_path }
+    
+    it { should have_content('About') }
+    it { should have_selector('title', text: 'Applicant Tracking System') }
   end
 
 
