@@ -1,9 +1,15 @@
 Ats::Application.routes.draw do
   
-  get "users/new"
+  get "sessions/new"
 
   match '/about', to: 'static_pages#about'
+    
+  match 'logout', to: "sessions#destroy"
+  match '/login', to: "sessions#new"
   match '/signup', to: 'users#new'
+  root :to => "users#new"
+  resources :users
+  resources :sessions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

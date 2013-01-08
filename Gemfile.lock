@@ -53,6 +53,7 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.1.5)
+    ffi (1.1.5-x86-mingw32)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -69,7 +70,9 @@ GEM
     mime-types (1.19)
     multi_json (1.5.0)
     nokogiri (1.5.5)
+    nokogiri (1.5.5-x86-mingw32)
     pg (0.12.2)
+    pg (0.12.2-x86-mingw32)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -139,6 +142,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   bootstrap-sass (= 2.1)
