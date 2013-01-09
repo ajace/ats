@@ -20,6 +20,6 @@ end
 
 gem 'jquery-rails', '2.0.2'
 
-
+gem "bcrypt-ruby", :require => "bcrypt"
 
 

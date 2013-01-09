@@ -1,13 +1,19 @@
 Ats::Application.routes.draw do
-  
-  get "sessions/new"
 
-  match '/about', to: 'static_pages#about'
-    
-  match 'logout', to: "sessions#destroy"
+  match '/about', to: "static_pages#about"
+
+  match '/logout', to: "sessions#destroy"
   match '/login', to: "sessions#new"
-  match '/signup', to: 'users#new'
-  root :to => "users#new"
+  match '/signup', to: "users#new"
+
+  # match '/dashboard', to:
+
+  # TODO: generate candidates scaffold
+  root to: 'candidates#index'
+  resources :candidates
+  
+  # TODO:  candidates?  if Authorized
+
   resources :users
   resources :sessions
 

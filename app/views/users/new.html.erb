@@ -12,16 +12,16 @@
     </div>
   <% end %>
   <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.label :name %><%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+    <%= f.label :email %><%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+    <%= f.label :password %><%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %><%= f.password_field :password_confirmation %>
   </p>
   <p class="button"><%= f.submit %></p>
 <% end %>
