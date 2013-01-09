@@ -1,5 +1,8 @@
 Ats::Application.routes.draw do
 
+  resources :candidates
+
+
   match '/about', to: "static_pages#about"
 
   match '/logout', to: "sessions#destroy"
