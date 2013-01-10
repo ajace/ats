@@ -8,6 +8,8 @@ group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'capybara', '1.1.2'
   gem 'guard-rspec'
+  gem 'guard-spork', '1.2.0'
+  gem 'spork', '0.9.2'
 end
 
 group :test do
