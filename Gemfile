@@ -7,7 +7,13 @@ gem 'bootstrap-sass', '2.1'
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'capybara', '1.1.2'
+  gem 'guard-rspec'
 end
+
+group :test do
+  gem 'rb-inotify', '0.8.8'
+  gem 'libnotify', '0.5.9'
+end 
 
 
 # Gems used only for assets and not required

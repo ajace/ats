@@ -24,4 +24,8 @@ Home (part of the company site. use server routing to point to User or Candidate
 		Candidate registration page		
 
 Add Twitter Bootstrap for quick styling
-Add the secret controller to initialize a user: this probably isn't the best way to kick off the start of the users database but it works for now
+Add the secret controller to initialize a user: this probably isn't the best way to kick off the start of the users database but it works for now  
+
+Further down the line
+### Parse Word and PDF files
+### Full text search
