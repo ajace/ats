@@ -55,6 +55,11 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    factory_girl (4.1.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.1.0)
+      factory_girl (~> 4.1.0)
+      railties (>= 3.0.0)
     ffi (1.0.11)
     guard (1.6.1)
       listen (>= 0.6.0)
@@ -77,11 +82,10 @@ GEM
       thor (~> 0.14)
     json (1.7.6)
     libnotify (0.5.9)
-      ffi (~> 1.0.0)
     libwebsocket (0.1.7.1)
       addressable
       websocket
-    listen (0.7.1)
+    listen (0.7.2)
     lumberjack (1.0.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -187,6 +191,7 @@ DEPENDENCIES
   bootstrap-sass (= 2.1)
   capybara (= 1.1.2)
   coffee-rails (~> 3.2.1)
+  factory_girl_rails
   guard-rspec
   guard-spork (= 1.2.0)
   jquery-rails (= 2.0.2)

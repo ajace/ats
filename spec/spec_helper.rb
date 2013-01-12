@@ -81,9 +81,10 @@ end
     # FactoryGirl.reload
 # end
 
-module ::RSpec::Core
-  class ExampleGroup
-    include Capybara::DSL
-    include Capybara::RSpecMatchers
-  end
-end
+# should be in /features
+# module ::RSpec::Core
+#   class ExampleGroup
+#     include Capybara::DSL
+#     include Capybara::RSpecMatchers
+#   end
+# end
