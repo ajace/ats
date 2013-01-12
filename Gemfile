@@ -5,13 +5,14 @@ gem 'pg', '0.12.2'
 gem 'bootstrap-sass', '2.1'
 
 group :development, :test do
-  gem 'rspec-rails', '2.11.0'
+  gem 'rspec-rails' # updating to above 2.11
   gem 'spork', '0.9.2'
   gem 'factory_girl_rails'
 end
 
 group :test do
-  gem 'capybara', '1.1.2'
+  # gem 'capybara', '1.1.2' #trying out new and moving integration tests to features folder
+  gem 'capybara'
   gem 'guard-rspec'
   gem 'guard-spork', '1.2.0'
   gem 'rb-inotify', '0.8.8'
