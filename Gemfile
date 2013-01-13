@@ -11,12 +11,12 @@ group :development, :test do
 end
 
 group :test do
-  # gem 'capybara', '1.1.2' #trying out new and moving integration tests to features folder
   gem 'capybara'
   gem 'guard-rspec'
   gem 'guard-spork', '1.2.0'
   gem 'rb-inotify', '0.8.8'
   gem 'libnotify', '0.5.9'
+  gem 'shoulda-matchers'
 end 
 
 
