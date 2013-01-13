@@ -17,14 +17,8 @@ Spork.prefork do
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
   RSpec.configure do |config|
-
-    # ## Mock Framework
     config.mock_with :rspec
-    
-    # If you're not using ActiveRecord, or you'd prefer not to run each of your
-    # examples within a transaction, remove the following line or assign false
-    # instead of true.
-    config.use_transactional_fixtures = false
+    config.use_transactional_fixtures = true
 
     # If true, the base class of anonymous controllers will be inferred
     # automatically. This will be the default behavior in future versions of
@@ -49,10 +43,9 @@ Spork.prefork do
   # end
 end
 
-# Spork.each_run do
-#   # This code will be run each time you run your specs.
-    # FactoryGirl.reload
-# end
+Spork.each_run do
+  FactoryGirl.reload
+end
 
 # should be in /features
 
