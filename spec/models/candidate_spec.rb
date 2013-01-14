@@ -2,9 +2,8 @@ require 'spec_helper'
 
 describe Candidate do
  
-  context "new submission" do
-  	before(:each){ candidate = FactoryGirl.create(:candidate) }
-  	
+  context "creating" do
+  	candidate = FactoryGirl.build(:candidate)
     it { should validate_presence_of(:email) }
     it { should validate_format_of(:email).with(/^.+@.+$/) } # not correctly validating
     # it { should validate_format_of(:email).with(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i) 
