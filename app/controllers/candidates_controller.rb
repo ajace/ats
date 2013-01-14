@@ -25,11 +25,6 @@ class CandidatesController < ApplicationController
   # GET /candidates/new.json
   def new
     @candidate = Candidate.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @candidate }
-    end
   end
 
   # GET /candidates/1/edit
@@ -44,11 +39,9 @@ class CandidatesController < ApplicationController
 
     respond_to do |format|
       if @candidate.save
-        format.html { redirect_to @candidate, notice: 'Candidate was successfully created.' }
-        format.json { render json: @candidate, status: :created, location: @candidate }
+        format.html { redirect_to new_candidate_path, notice: 'Successfully submitted.'}
       else
         format.html { render action: "new" }
-        format.json { render json: @candidate.errors, status: :unprocessable_entity }
       end
     end
   end
