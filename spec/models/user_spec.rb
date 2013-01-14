@@ -9,6 +9,7 @@ describe User do
 		it "should validate uniqueness at the db level" #6.22
 		it { should validate_format_of(:email).with(/^.+@.+$/) }
 		it { should validate_presence_of(:password) }
+		it { should ensure_length_of(:password).is_at_least(6).is_at_most(8) }
 	end
 
 	context "authenticates" do
