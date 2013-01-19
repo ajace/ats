@@ -8,8 +8,16 @@
     <%= render 'layouts/shim' %>
   </head>
   <body>
+    <%= render 'layouts/nav' %>
+
     <div class="container">
-      <%= render 'layouts/header' %>
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+          <a class="close" data-dismiss="alert">x</a>
+          <%= msg %>
+        </div>
+      <% end %>
+      
       <%= yield %>
     </div>
   </body>

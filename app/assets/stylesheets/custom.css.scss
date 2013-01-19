@@ -4,26 +4,9 @@ html {
   overflow-y: scroll;
 }
 
-body {
-  padding-top: 60px;
-}
-
 section {
   overflow: auto;
 }
-
-textarea {
-  resize: vertical;
-}
-
-.center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
-}
-
-
 
 /* typography */
 
@@ -55,7 +38,6 @@ p {
 /* header */
 
 #logo {
-  float: left;
   margin-right: 10px;
   font-size: 1.7em;
   color: #fff;
@@ -69,4 +51,6 @@ p {
     text-decoration: none;
   }
 }
+
+
 
