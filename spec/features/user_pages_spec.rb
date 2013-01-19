@@ -18,6 +18,7 @@ describe "User pages" do
 	end
 
 	describe "UserDashboard" do
+		it "should seed initial admin"
 		it "is logged in"
 		it "shows most recent candidate applications"
 		it "can sort candidates by field"

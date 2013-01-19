@@ -1,0 +1,8 @@
+	<div id="flashes">
+    <% if flash[:error] %>
+      <p id="flash_errors" class="message error"><%= flash[:error] %></p>
+      <%= javascript_tag "$('#flash_errors').effect('highlight',{},5000);" %>
+    <% end %>
+
+    <% flash[:error] = flash[:errors] = flash[:notice] = nil %>
+	</div>

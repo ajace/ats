@@ -1,16 +1,15 @@
 Ats::Application.routes.draw do
 
+  root to: "candidates#new"
+
   match '/about', to: "static_pages#about"
 
   match '/logout', to: "sessions#destroy"
   match '/login', to: "sessions#new"
   match '/signup', to: "users#new"
+  match '/users', to: "sessions#new"
 
-  match '/dashboard', to: "users#dashboard"
-
-  root to: 'candidates#new'
   resources :candidates
-  
   resources :users
   resources :sessions
 

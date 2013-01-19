@@ -1,4 +1,7 @@
 class CandidatesController < ApplicationController
+
+  before_filter :authenticate, except: [:new, :create]
+
   # GET /candidates
   def index
     @candidates = Candidate.all
@@ -34,7 +37,7 @@ class CandidatesController < ApplicationController
 
     respond_to do |format|
       if @candidate.save
-        format.html { redirect_to new_candidate_path, notice: 'Successfully submitted.'}
+        format.html { redirect_to root_url, notice: 'Successfully submitted.'}
       else
         format.html { render action: "new" }
       end
