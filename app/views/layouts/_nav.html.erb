@@ -1,20 +1,22 @@
 <div class="navbar navbar-fixed-top">
-    <div class="container">
-      <a class="brand" href="#">Company</a>
-        <div class="btn-group pull-right">
-          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Admin <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <% if current_user %>
-                <li>
-                Logged in as <%= current_user.email %><br>
-                <%= link_to "Admin Log Out", logout_path %>
-                </li>
-              <% else %>
-                <li>
-                <%= link_to "Admin Log In", login_path %>
-                </li>
-              <% end %> 
-            </ul>
-        </div>
+  <div class="container">
+    <a class="brand" href="#">Company</a>
+    <div class="btn-group pull-right">
+      <a class="btn" href="
+        <% if current_user %>
+          <%= logout_path %>">Admin Log Out</a>
+          <% else %>
+          <%= login_path %>">Admin Log In</a>
+        <% end %>
+      </a>
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <% if current_user %>
+          Logged in as <%= current_user.email %>
+          <% else %>
+          Admins please log in
+        <% end %> 
+      </ul>
     </div>
+  </div>
 </div>
