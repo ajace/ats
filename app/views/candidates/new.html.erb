@@ -1,6 +1,7 @@
-<%- model_class = Candidate -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
-                                 :default => "New #{model_class.model_name.human}") %></h1>
-</div>
+<% if current_user %>
+	<header><h2>New Candidate</h2></header>
+<% else %>
+	<header><h2>Submit your information</h2></header>
+<% end %>
+
 <%= render :partial => 'form' %>
