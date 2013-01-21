@@ -1,7 +1,9 @@
 class Candidate < ActiveRecord::Base
-  attr_accessible :email, :name, :phone, :position, :resume
-
   mount_uploader :resume, ResumeUploader
+
+  attr_accessible :email, :name, :phone, :position, :resume, :remove_resume
+
+  
 
   # candidate email does not need to be unique, so that a candidate can re-apply
   validates_presence_of :email

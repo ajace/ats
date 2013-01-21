@@ -1,4 +1,11 @@
-<h1>Log in</h1>
+<h1>Log In</h1>
+
+<% if flash[:error] %>
+<div class="alert alert-notice">
+	<%= flash[:error] %>
+	<a class="close" data-dismiss="alert">x</a>
+</div>
+<% end %>
 
 <%= form_tag sessions_path do %>
 	<p>
@@ -12,10 +19,6 @@
 	<p class="button"><%= submit_tag "Log in" %></p>
 <% end %>
 
-<div id="flashes">
-    <% if flash[:error] %>
-      <p id="flash_errors" class="message error"><%= flash[:error] %></p>
-      <%= javascript_tag  "$('#flash_errors').effect('highlight',{},1000);"  %>
-    <% end %>
-    <% flash[:error] = nil %>
-</div>	
+
+
+    

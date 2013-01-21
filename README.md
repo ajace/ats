@@ -29,3 +29,7 @@ Add the secret controller to initialize a user: this probably isn't the best way
 Further down the line
 ### Parse Word and PDF files
 ### Full text search
+
+Point new candidates to '/candidates/new'  
+  
+  

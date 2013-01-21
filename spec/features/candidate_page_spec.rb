@@ -40,6 +40,7 @@ describe "CandidatePage" do
 
 		it "should not be able to submit without resume or portfolio or LinkedIn profile attached"
 		it "should show client side validation", pending #http://railscasts.com/episodes/263-client-side-validations
+		it "should have cover letter, Website, blog, Github or portfolio, and source Source How did you hear about us?:"
 	end	
 
 	context "administration" do

@@ -1,6 +1,6 @@
 Ats::Application.routes.draw do
 
-  root to: "candidates#new"
+  root to: "candidates#index"
 
   match '/about', to: "static_pages#about"
 

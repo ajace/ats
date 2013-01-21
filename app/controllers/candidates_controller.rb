@@ -24,6 +24,14 @@ class CandidatesController < ApplicationController
   # GET /candidates/new
   def new
     @candidate = Candidate.new
+
+    respond_to do |format|
+      if @candidate.save
+        format.html { redirect_to candidates_url, notice: 'Successfully submitted.'}
+      else
+        format.html { render action: "new" }
+      end
+    end
   end
 
   # GET /candidates/1/edit
@@ -37,7 +45,7 @@ class CandidatesController < ApplicationController
 
     respond_to do |format|
       if @candidate.save
-        format.html { redirect_to root_url, notice: 'Successfully submitted.'}
+        format.html { redirect_to candidates_url, notice: 'Successfully submitted.'}
       else
         format.html { render action: "new" }
       end
@@ -67,4 +75,20 @@ class CandidatesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # DELETE resume /candidates/1
+  # def remove_resumefile
+  #   @candidate = Candidate.find(params[:id])
+    
+  #   @candidate.remove_resume! if @candidate.resume
+  #   # @candidate.save
+
+  #   respond_to do |format|
+  #     format.html { render action: "edit" }
+  #   end
+  # end
+
 end
+
+
+

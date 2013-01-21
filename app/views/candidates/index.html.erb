@@ -5,24 +5,24 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
       <th><%= model_class.human_attribute_name(:phone) %></th>
       <th><%= model_class.human_attribute_name(:position) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:resume) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @candidates.each do |candidate| %>
       <tr>
-        <td><%= link_to candidate.id, candidate_path(candidate) %></td>
-        <td><%= candidate.name %></td>
+        <td><%= link_to candidate.name, candidate_path(candidate) %></td>
         <td><%= candidate.email %></td>
         <td><%= candidate.phone %></td>
         <td><%= candidate.position %></td>
-        <td><%=l candidate.created_at %></td>
+        <td><%= candidate.created_at.strftime("%d %b %Y") %></td>
+        <td><%= link_to 'view', candidate.resume.url %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_candidate_path(candidate), :class => 'btn btn-mini' %>
