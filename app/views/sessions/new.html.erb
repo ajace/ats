@@ -1,4 +1,4 @@
-<h1>Log In</h1>
+<header><h2>Log In</h2></header>
 
 <% if flash[:error] %>
 <div class="alert alert-notice">
@@ -7,16 +7,18 @@
 </div>
 <% end %>
 
-<%= form_tag sessions_path do %>
-	<p>
-		<%= label_tag :email %><br />
-		<%= text_field_tag :email, params[:email] %>
-	</p>
-	<p>
-		<%= label_tag :password %><br />
-		<%= password_field_tag :password %>
-	</p>
-	<p class="button"><%= submit_tag "Log in" %></p>
+<%= form_tag sessions_path, class: "form-horizontal" do %>
+	<div class="control-group">
+		<div class="control-label"> <%= label_tag :email %></div>
+		<div class="controls"><%= text_field_tag :email, params[:email] %></div>
+	</div>		
+	<div class="control-group">
+		<div class="control-label"> <%= label_tag :password %></div>
+		<div class="controls"><%= password_field_tag :password %></div>
+	</div>		
+	<div class="control-group">
+		<div class="controls"><%= submit_tag "Log in" %></div>
+	</div>
 <% end %>
 
 
