@@ -8,7 +8,6 @@ class CandidatesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @candidates }
     end
   end
 
@@ -29,6 +28,7 @@ class CandidatesController < ApplicationController
       if @candidate.save
         format.html { redirect_to candidates_url, notice: 'Successfully submitted.'}
       else
+        flash[:error] = "Could not submit information"
         format.html { render action: "new" }
       end
     end
@@ -47,6 +47,7 @@ class CandidatesController < ApplicationController
       if @candidate.save
         format.html { redirect_to candidates_url, notice: 'Successfully submitted.'}
       else
+        flash.now[:error] = "Could not submit information"
         format.html { render action: "new" }
       end
     end
@@ -72,21 +73,19 @@ class CandidatesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to candidates_url }
-      format.json { head :no_content }
     end
   end
 
   # DELETE resume /candidates/1
-  # def remove_resumefile
-  #   @candidate = Candidate.find(params[:id])
+  def remove_resumefile
+    @candidate = Candidate.find(params[:id])
     
-  #   @candidate.remove_resume! if @candidate.resume
-  #   # @candidate.save
+    @candidate.remove_resume! if @candidate.resume
 
-  #   respond_to do |format|
-  #     format.html { render action: "edit" }
-  #   end
-  # end
+    respond_to do |format|
+      format.html { render action: "edit" }
+    end
+  end
 
 end
 
