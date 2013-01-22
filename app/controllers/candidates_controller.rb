@@ -23,15 +23,6 @@ class CandidatesController < ApplicationController
   # GET /candidates/new
   def new
     @candidate = Candidate.new
-
-    respond_to do |format|
-      if @candidate.save
-        format.html { redirect_to candidates_url, notice: 'Successfully submitted.'}
-      else
-        flash[:error] = "Could not submit information"
-        format.html { render action: "new" }
-      end
-    end
   end
 
   # GET /candidates/1/edit
@@ -45,9 +36,13 @@ class CandidatesController < ApplicationController
 
     respond_to do |format|
       if @candidate.save
-        format.html { redirect_to candidates_url, notice: 'Successfully submitted.'}
+        if current_user
+          format.html { redirect_to candidates_path, notice: 'New candidate created' }
+        else
+          format.html { redirect_to new_candidate_path, notice: 'Successfully submitted' }
+        end
       else
-        flash.now[:error] = "Could not submit information"
+        flash.now[:error] = "Could not submit information. See below"
         format.html { render action: "new" }
       end
     end
@@ -61,6 +56,7 @@ class CandidatesController < ApplicationController
       if @candidate.update_attributes(params[:candidate])
         format.html { redirect_to @candidate, notice: 'Candidate was successfully updated.' }
       else
+        flash.now[:error] = "Could not submit information. See below"
         format.html { render action: "edit" }
       end
     end
