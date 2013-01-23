@@ -1,35 +1,33 @@
-Simple Applicant Tracking System built on Rails, using PostGreSQL for small to medium sized companies / entities (managers, leads, or single HR manager) can manage candidates. 
+# Simple Applicant Tracking System # 
 
-FEATURES/PLANNED FEATURES
+for small to medium sized companies / entities (managers, leads, or single HR manager) can manage candidates.  
 
-Candidates can submit their information directly
-Candidates can submit their information using LinkedIn
+## Usage ##
+Route public career page to '/candidates/new'  
 
-Users can view, sort, search candidates who have applied
+## Environment ##
+Rails
+PostgreSQL
+Twitter Bootstrap  
 
-TODO:  
+Simple_form
+Carrierwave  
+bcrypt  
 
-Information Architecture
+Rspec
+Capybara
+Shoulda
+Factory Girl
+Guard
+Spork  
 
-Home (part of the company site. use server routing to point to User or Candidate)  
-	User
-		Register User
-		Login User (all users are admins)
-			Candidates Dashboard (new session)  
-				Candidates#Index as main page
-				Message Board on the right to share messages between team  
-				Edit User
+## PLANNED FEATURES ##
 
-	Candidate (does not need to be able to login)
-		Candidate registration page		
+Positions and Job descriptions  
+Candidates can submit their information using LinkedIn  
+Parse Word and PDF files  
+Full text search  
 
-Add Twitter Bootstrap for quick styling
-Add the secret controller to initialize a user: this probably isn't the best way to kick off the start of the users database but it works for now  
 
-Further down the line
-### Parse Word and PDF files
-### Full text search
-
-Point new candidates to '/candidates/new'  
-  
+ 
   
