@@ -1,6 +1,6 @@
 # Simple Applicant Tracking System 
 
-for small to medium sized companies / entities (managers, leads, or single HR manager) can manage candidates.  
+for small to medium sized companies and non-profits to manage their candidate pipeline.  
 
 ## Usage ##
 Route public career page to '/candidates/new'  
@@ -23,10 +23,14 @@ Spork
 
 ## PLANNED FEATURES
 
-Positions and Job descriptions  
+Client side validations  
+Ajax  
+Cover letters  
+Positions and Job descriptions page  
 Candidates can submit their information using LinkedIn  
 Parse Text, Word and PDF files  
-Full text search on resumes
+Full text search on resumes  
+Responsive design  
 
 
  
