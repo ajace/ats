@@ -1,7 +1,8 @@
 class Candidate < ActiveRecord::Base
-  mount_uploader :resume, ResumeUploader
+  # mount_uploader :resume, ResumeUploader
 
-  attr_accessible :email, :name, :phone, :position, :resume, :remove_resume
+  attr_accessible :email, :name, :phone, :position
+  # , :resume, :remove_resume
 
   # candidate email does not need to be unique, so that a candidate can re-apply
   validates_presence_of :email
@@ -15,12 +16,12 @@ class Candidate < ActiveRecord::Base
 
   validates_length_of :name, :minimum => 3, :maximum => 50 #, :allow_blank => false
   
-  validate :resume_size_validation, :if => "resume?"
+  # validate :resume_size_validation, :if => "resume?"
 
   has_one :resume
 
-  def resume_size_validation
-    errors[:resume] << "should be 2MB or less" if resume.size > 2.megabytes
-  end
+  # def resume_size_validation
+  #   errors[:resume] << "should be 2MB or less" if resume.size > 2.megabytes
+  # end
 
 end
