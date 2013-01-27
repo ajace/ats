@@ -2,7 +2,7 @@
 
 for small to medium sized companies and non-profits to manage their candidate pipeline.  
 
-## Usage ##
+## Usage
 Route public career page to '/candidates/new'  
 
 ## Environment

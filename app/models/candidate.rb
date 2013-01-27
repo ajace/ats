@@ -17,6 +17,8 @@ class Candidate < ActiveRecord::Base
   
   validate :resume_size_validation, :if => "resume?"
 
+  has_one :resume
+
   def resume_size_validation
     errors[:resume] << "should be 2MB or less" if resume.size > 2.megabytes
   end
