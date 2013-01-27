@@ -11,5 +11,4 @@ class Resume < ActiveRecord::Base
     errors[:resume] << "should be 2MB or less" if resume.size > 2.megabytes
   end
 
-
 end
