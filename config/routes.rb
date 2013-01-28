@@ -9,7 +9,10 @@ Ats::Application.routes.draw do
   match '/signup', to: "users#new"
   match '/users', to: "sessions#new"
 
-  resources :candidates
+  resources :candidates do
+    resources :resumes
+  end
+  
   resources :users
   resources :sessions
 

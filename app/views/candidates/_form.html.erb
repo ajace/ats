@@ -5,24 +5,30 @@
   </div>
 <% end %>
 
-<%= simple_form_for @candidate, :html => { :class => 'form-horizontal'} do |f| %>
 
-  <%= f.hint 'Upload a resume (Doc, Docx, PDF, Txt formats supported)', class: "control-group controls" %>
-  <%= f.file_field :resume, class: "controls", label: "Resume"  %>
-  
-  <br><br>
-  <%= f.label :resume %><div class="controls"><%= resume_name %>
-  <%= f.full_error :resume, class: "alert" %>
-  </div>
 
-  <div class="controls"><%= f.check_box :remove_resume %> Remove resume </div><br><br>
+
+<%= simple_nested_form_for @candidate, html: {multipart: true, class: 'form-horizontal'} do |f| %>
   
+
+  <%= f.fields_for :resume do |resume_form| %>
+
+    <%= link_to "resume", resume_form.object.file.url if resume_form.object.file? %>
+
+    <%= resume_form.file_field :file, label: "Resume" %>
+    <%= resume_form.link_to_remove "Remove this file" %>
+  <% end %>
+
+  <%= f.link_to_add "Add resume", :resume, class: 'controls' %>
+
+  <p>
+
   <%= f.input :name %>
   <%= f.input :email, :required => false %>
   <%= f.input :phone %>
   <%= f.input :position %>
 
-  <%= f.button :submit, 'Submit', class: "control-group controls" %>
+  <%= f.button :submit, 'Submit', class: 'controls' %>
 
 <% end %>
 

@@ -5,24 +5,17 @@ class CandidatesController < ApplicationController
   # GET /candidates
   def index
     @candidates = Candidate.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-    end
   end
 
   # GET /candidates/1
   def show
     @candidate = Candidate.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-    end
   end
 
   # GET /candidates/new
   def new
     @candidate = Candidate.new
+    # @candidate.build_resume          #create instance of resume for nested form, update to 3.2 method?
   end
 
   # GET /candidates/1/edit
@@ -34,17 +27,15 @@ class CandidatesController < ApplicationController
   def create
     @candidate = Candidate.new(params[:candidate])
 
-    respond_to do |format|
-      if @candidate.save
-        if current_user
-          format.html { redirect_to candidates_path, notice: 'New candidate created' }
-        else
-          format.html { redirect_to new_candidate_path, notice: 'Successfully submitted' }
-        end
+    if @candidate.save
+      if current_user
+        redirect_to candidates_path, notice: 'New candidate created' 
       else
-        flash.now[:error] = "Could not submit information. See below"
-        format.html { render action: "new" }
+        redirect_to new_candidate_path, notice: 'Successfully submitted'
       end
+    else
+      flash.now[:error] = "Could not submit information. See below"
+      render action: "new" 
     end
   end
 
@@ -52,14 +43,12 @@ class CandidatesController < ApplicationController
   def update
     @candidate = Candidate.find(params[:id])
 
-    respond_to do |format|
       if @candidate.update_attributes(params[:candidate])
-        format.html { redirect_to @candidate, notice: 'Candidate was successfully updated.' }
+        redirect_to @candidate, notice: 'Candidate was successfully updated.' 
       else
         flash.now[:error] = "Could not submit information. See below"
-        format.html { render action: "edit" }
+        render action: "edit" 
       end
-    end
   end
 
   # DELETE /candidates/1
@@ -67,22 +56,8 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.find(params[:id])
     @candidate.destroy
 
-    respond_to do |format|
-      format.html { redirect_to candidates_url }
-    end
+    redirect_to candidates_url, notice: 'Candidate deleted.'
   end
-
-  # DELETE resume /candidates/1
-  def remove_resumefile
-    @candidate = Candidate.find(params[:id])
-    
-    @candidate.remove_resume! if @candidate.resume
-
-    respond_to do |format|
-      format.html { render action: "edit" }
-    end
-  end
-
 end
 
 

@@ -18,7 +18,7 @@
       <th><%= model_class.human_attribute_name(:phone) %></th>
       <th><%= model_class.human_attribute_name(:position) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%= model_class.human_attribute_name(:resume) %></th>
+      <th>Resume</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -30,7 +30,8 @@
         <td><%= candidate.phone %></td>
         <td><%= candidate.position %></td>
         <td><%= candidate.created_at.strftime("%d %b %Y") %></td>
-        <td><%= link_to 'view', candidate.resume.url %></td>
+        <td>#
+        </td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_candidate_path(candidate), :class => 'btn btn-mini' %>

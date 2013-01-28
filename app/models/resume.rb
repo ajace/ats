@@ -1,14 +1,14 @@
 class Resume < ActiveRecord::Base
-  attr_accessible :candidate_id, :resume, :remove_resume
+  attr_accessible :candidate, :candidate_id, :file, :remove_file, :filename
 
   belongs_to :candidate
 
-  mount_uploader :resume, ResumeUploader
+  mount_uploader :file, FileUploader
 
-  validate :resume_size_validation, :if => "resume?"
+  validate :file_size_validation, if: "file?"
 
-  def resume_size_validation
-    errors[:resume] << "should be 2MB or less" if resume.size > 2.megabytes
+  def file_size_validation
+    errors[:file] << "should be 2MB or less" if file.size > 2.megabytes
   end
 
 end

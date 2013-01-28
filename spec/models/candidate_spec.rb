@@ -11,5 +11,6 @@ describe Candidate do
     it "has a resume, portfolio or LinkedIn profile attached"
   end
 
-  it { should have_one(:resume) }
+  it { should have_one :resume }
+  it { should accept_nested_attributes_for :resume } # .allow_destroy(true) not working
 end
