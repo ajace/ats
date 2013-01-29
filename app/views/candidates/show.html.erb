@@ -13,7 +13,7 @@
   <dt><strong><%= model_class.human_attribute_name(:position) %>:</strong></dt>
   <dd><%= @candidate.position %></dd>
   <dt><strong>Resume:</strong></dt>
-  <dd>#</dd>
+  <dd><%= link_to @candidate.resume.filename, @candidate.resume.file_url %></dd>
 </dl>
 
 <div class="form-actions">

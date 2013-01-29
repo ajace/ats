@@ -3,15 +3,6 @@ class ApplicationController < ActionController::Base
 	
 	# force_ssl; TO implement
   	helper_method :current_user
- #  	helper_method :resume_name
-
-	# def resume_name
- #  		if @candidate.resume?
- #    		@resumefilename = File.basename(@resume.file.path)
- #  		else
- #  			@resumefilename = "Please upload resume"
- #  		end
- #  	end
 
 	private
 

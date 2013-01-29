@@ -5,18 +5,13 @@
   </div>
 <% end %>
 
-
-
-
 <%= simple_nested_form_for @candidate, html: {multipart: true, class: 'form-horizontal'} do |f| %>
   
-
   <%= f.fields_for :resume do |resume_form| %>
 
-    <%= link_to "resume", resume_form.object.file.url if resume_form.object.file? %>
-
-    <%= resume_form.file_field :file, label: "Resume" %>
+    <%= (resume_form.object.file.url).split("/").last if resume_form.object.file? %>
     <%= resume_form.link_to_remove "Remove this file" %>
+    <p><%= resume_form.file_field :file, label: "Resume" %></p>
   <% end %>
 
   <%= f.link_to_add "Add resume", :resume, class: 'controls' %>
@@ -31,5 +26,3 @@
   <%= f.button :submit, 'Submit', class: 'controls' %>
 
 <% end %>
-
-

@@ -30,8 +30,7 @@
         <td><%= candidate.phone %></td>
         <td><%= candidate.position %></td>
         <td><%= candidate.created_at.strftime("%d %b %Y") %></td>
-        <td>#
-        </td>
+        <td><%= link_to "resume", candidate.resume.file_url if candidate.resume %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_candidate_path(candidate), :class => 'btn btn-mini' %>
@@ -45,6 +44,8 @@
     <% end %>
   </tbody>
 </table>
+
+
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_candidate_path,
