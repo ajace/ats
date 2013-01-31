@@ -5,16 +5,18 @@ class CandidatesController < ApplicationController
   # GET /candidates
   def index
     @candidates = Candidate.all
-  end
+  GET
 
-  # GET /candidates/1
+  # end /candidates/1
   def show
     @candidate = Candidate.find(params[:id])
   end
 
   # GET /candidates/new
   def new
-    @candidate = Candidate.new
+    # @candidate = Candidate.new
+    @candidate = Candidate.new(resume: Resume.new)  # nested attributes
+    # @candidate = Candidate.new(:resume => Resume.new)
     # @candidate.build_resume          #create instance of resume for nested form, update to 3.2 method?
   end
 
@@ -35,7 +37,7 @@ class CandidatesController < ApplicationController
       end
     else
       flash.now[:error] = "Could not submit information. See below"
-      render action: "new" 
+      render :new
     end
   end
 
@@ -47,7 +49,7 @@ class CandidatesController < ApplicationController
         redirect_to @candidate, notice: 'Candidate was successfully updated.' 
       else
         flash.now[:error] = "Could not submit information. See below"
-        render action: "edit" 
+        render :edit
       end
   end
 

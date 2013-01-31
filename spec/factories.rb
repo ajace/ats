@@ -12,4 +12,8 @@ FactoryGirl.define do
 		phone	"1111111111"
 		position "Developer"
 	end
+
+	factory :resume do
+		
+	end
 end

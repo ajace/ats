@@ -3,12 +3,10 @@ require 'spec_helper'
 describe Resume do
  
   context "creating" do
-  # 	# candidate = FactoryGirl.build(:candidate)
-  #  #  it { should validate_presence_of(:email) }
-  #  #  it { should validate_format_of(:email).with(/^.+@.+$/) } 
-  #  #  it { should ensure_length_of(:name).is_at_least(3).is_at_most(50) }
+  	candidate = FactoryGirl.build(:resume)
 
-  #  #  it "has a resume, portfolio or LinkedIn profile attached"
+  	it "should have a resume or portfolio attached; should be less than 2mb"
+  
   end
 
   it { should belong_to(:candidate) }
