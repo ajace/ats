@@ -1,20 +1,21 @@
-<%- model_class = Candidate -%>
 <div class="page-header">
-  <h2><%=t '.title', :default => model_class.model_name.human %></h2>
+  <h2>Candidate</h2>
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @candidate.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-  <dd><%= @candidate.email %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
-  <dd><%= @candidate.phone %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:position) %>:</strong></dt>
-  <dd><%= @candidate.position %></dd>
-  <dt><strong>Resume:</strong></dt>
-  <dd><%= link_to @candidate.resume.filename, @candidate.resume.file_url %></dd>
-</dl>
+    <dt>Resume</dt>
+    <dd><%= link_to @candidate.resume.filename, @candidate.resume.file_url if @candidate.resume %></dd>  
+    <dt>Name</dt>
+    <dd><%= @candidate.name %></dd>
+    <dt>Email</dt>
+    <dd><%= @candidate.email %></dd>
+    <dt>Phone</dt>
+    <dd><%= @candidate.phone %></dd>
+    <dt>Position</dt>
+    <dd><%= @candidate.position %></dd>
+    <dt>Cover Letter</dt>
+    <dd><%= @candidate.cover_letter %></dd>  
+</dl>   
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

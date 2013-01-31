@@ -5,19 +5,19 @@ class CandidatesController < ApplicationController
   # GET /candidates
   def index
     @candidates = Candidate.all
-  GET
+  end 
 
-  # end /candidates/1
+  # GET /candidates/1
+  # redirect to edit
   def show
     @candidate = Candidate.find(params[:id])
   end
 
   # GET /candidates/new
   def new
-    # @candidate = Candidate.new
-    @candidate = Candidate.new(resume: Resume.new)  # nested attributes
-    # @candidate = Candidate.new(:resume => Resume.new)
-    # @candidate.build_resume          #create instance of resume for nested form, update to 3.2 method?
+    @candidate = Candidate.new
+    @candidate.build_resume          #create instance of resume for nested form, update to 3.2 method?
+    # @candidate = Candidate.new(resume: Resume.new)  # not working
   end
 
   # GET /candidates/1/edit
@@ -58,8 +58,9 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.find(params[:id])
     @candidate.destroy
 
-    redirect_to candidates_url, notice: 'Candidate deleted.'
+    redirect_to candidates_path, notice: 'Candidate deleted.'
   end
+
 end
 
 

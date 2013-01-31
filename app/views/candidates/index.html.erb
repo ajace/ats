@@ -19,21 +19,20 @@
       <th><%= model_class.human_attribute_name(:position) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th>Resume</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @candidates.each do |candidate| %>
       <tr>
-        <td><%= link_to candidate.name, candidate_path(candidate) %></td>
+        <td><%= link_to candidate.name, edit_candidate_path(candidate) %></td>
         <td><%= candidate.email %></td>
         <td><%= candidate.phone %></td>
         <td><%= candidate.position %></td>
         <td><%= candidate.created_at.strftime("%d %b %Y") %></td>
         <td><%= link_to "resume", candidate.resume.file_url if candidate.resume %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_candidate_path(candidate), :class => 'btn btn-mini' %>
+
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       candidate_path(candidate),
                       :method => :delete,

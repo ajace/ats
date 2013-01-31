@@ -11,6 +11,7 @@ FactoryGirl.define do
 		sequence(:email) { |e| "john#{e}@doe.com" }
 		phone	"1111111111"
 		position "Developer"
+		cover_letter "really long string"*10000
 	end
 
 	factory :resume do

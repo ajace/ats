@@ -5,23 +5,22 @@
   </div>
 <% end %>
 
-<%= simple_nested_form_for @candidate, html: {multipart: true, class: 'form-horizontal'} do |f| %>
-  
-  <%= f.fields_for :resume do |resume_form| %>
 
-    <%= (resume_form.object.file.url).split("/").last if resume_form.object.file? %>
-    <%= resume_form.link_to_remove "Remove this file" %>
-    <p><%= resume_form.file_field :file, label: "Resume" %></p>
-  <% end %>
+  <%= simple_nested_form_for @candidate, html: {multipart: true, class: "form-horizontal" } do |f| %>
+    <%= f.fields_for :resume do |resume_form| %>
+
+      <%= (resume_form.object.file.url).split("/").last if resume_form.object.file? %>
+      <%= resume_form.link_to_remove "Remove this file" if resume_form.object.file? %>
+      <p><%= resume_form.file_field :file, label: "Resume" if resume_form.object.file %></p>
+    <% end %>
 
   <%= f.link_to_add "Add resume", :resume, class: 'controls' %>
-
-  <p>
 
   <%= f.input :name %>
   <%= f.input :email, :required => false %>
   <%= f.input :phone %>
   <%= f.input :position %>
+  <%= f.input :cover_letter %>
 
   <%= f.button :submit, 'Submit', class: 'controls' %>
 
