@@ -1,7 +1,4 @@
 <%- model_class = Candidate -%>
-<div class="page-header">
-  <h2><%=t '.title', :default => model_class.model_name.human.pluralize %></h2>
-</div>
 
 <% flash.each do |name, msg| %>
   <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
@@ -25,14 +22,13 @@
   <tbody>
     <% @candidates.each do |candidate| %>
       <tr>
-        <td><%= link_to candidate.name, edit_candidate_path(candidate) %></td>
+        <td><%= link_to candidate.name, candidate_path(candidate) %></td>
         <td><%= candidate.email %></td>
         <td><%= candidate.phone %></td>
         <td><%= candidate.position %></td>
         <td><%= candidate.created_at.strftime("%d %b %Y") %></td>
         <td><%= link_to "resume", candidate.resume.file_url if candidate.resume %></td>
         <td>
-
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       candidate_path(candidate),
                       :method => :delete,

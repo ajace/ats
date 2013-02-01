@@ -107,7 +107,7 @@ jQuery(function($) {
 
 // limit max count of nested fields 
 $(function() {
-  var fieldsCount,
+  var fieldsCount = 1,
       maxFieldsCount = 1,
       $addLink = $('a.add_nested_fields');
   

@@ -10,7 +10,7 @@ class Candidate < ActiveRecord::Base
   validates_length_of :name, minimum: 3, maximum: 50 
   validates_length_of :cover_letter, maximum: 1000
   
-  has_one :resume, dependent: :destroy
+  has_one :resume #, dependent: :destroy
   accepts_nested_attributes_for :resume, allow_destroy: true
   
 end

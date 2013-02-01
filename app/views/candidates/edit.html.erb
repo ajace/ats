@@ -1,6 +1,3 @@
-<%- model_class = Candidate -%>
-<div class="page-header">
-  <h2><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
-                                   :default => "Edit #{model_class.model_name.human}") %></h2>
-</div>
+<header><h3>Edit Candidate</h3></header><br>
+
 <%= render :partial => 'form' %>

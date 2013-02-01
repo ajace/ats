@@ -1,19 +1,27 @@
-<div class="navbar navbar-fixed-top">
-  <div class="container">
+<div class="navbar navbar-static-top">
+  <div class="container">  
     <a class="brand" href="/">Company</a>
-    <div class="btn-group pull-right">
-      <a class="btn" href="
+
+    <% if current_user %>
+      <ul class="nav nav-pills">
+        <li class="active">
+          <a href="<%= root_path %>">Candidates</a>
+        </li>
+        <li><a href="#">Jobs</a></li>
+      </ul>
+    <% end %>
+
+    <div class="navbar-text pull-right">
+      <% if current_user %>
+        Logged in as <%= current_user.name %>  
+      <% end %>
+      <a class="" href="
         <% if current_user %>
-          <%= candidates_path %>">Candidates</a>
-          <a class="btn" href="<%= logout_path %>">Admin Log Out</a>
+          <%= logout_path %>">...Log Out</a>
           <% else %>
           <%= login_path %>">Admin Log In</a>
         <% end %>
       </a>
-      <% if current_user %>
-        <br><div class="pull-right">Logged in as <%= current_user.name %></div>
-      <% end %>
     </div>
   </div>
-
 </div>

@@ -1,12 +1,18 @@
 class ResumesController < ApplicationController
 
   # before_filter :authenticate, except: [:new, :create]
-  before_filter :get_candidate
+  before_filter :get_candidate, except: [:new, :create, :show]
 
   # find candidate this resume belongs_to
   def get_candidate
      @candidate  = Candidate.find(params[:candidate_id]) if params[:candidate_id]
   end
+
+  # GET /resumes/1
+  def show
+    @resume = Resume.find(params[:id])
+  end
+
 
   # # GET /resumes/new
   # def new
@@ -53,6 +59,6 @@ class ResumesController < ApplicationController
     @resume = Resume.find(params[:id])
     @resume.destroy
 
-    redirect_to edit_candidate_path(@candidate)
+    redirect_to candidate_path(@candidate)
   end
 end

@@ -1,10 +1,6 @@
-<div class="page-header">
-  <h2>Candidate</h2>
-</div>
-
 <dl class="dl-horizontal">
     <dt>Resume</dt>
-    <dd><%= link_to @candidate.resume.filename, @candidate.resume.file_url if @candidate.resume %></dd>  
+    <dd><%= link_to @candidate.resume.filename, @candidate.resume.file_url if @candidate.resume %></dd>
     <dt>Name</dt>
     <dd><%= @candidate.name %></dd>
     <dt>Email</dt>
