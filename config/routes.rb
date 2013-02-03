@@ -1,5 +1,8 @@
 Ats::Application.routes.draw do
 
+  resources :jobs
+
+
   root to: "candidates#index"
 
   match '/about', to: "static_pages#about"
