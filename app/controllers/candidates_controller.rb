@@ -8,7 +8,6 @@ class CandidatesController < ApplicationController
   end 
 
   # GET /candidates/1
-  # redirect to edit
   def show
     @candidate = Candidate.find(params[:id])
   end

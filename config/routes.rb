@@ -10,7 +10,7 @@ Ats::Application.routes.draw do
   match '/logout', to: "sessions#destroy"
   match '/login', to: "sessions#new"
   match '/signup', to: "users#new"
-  match '/users', to: "sessions#new"
+  # match '/users', to: "sessions#new"
   
   resources :candidates do
     resources :resumes

@@ -33,6 +33,7 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem 'simple_form'
 gem "carrierwave"
 gem 'nested_form'
+gem "launchy"
 
 
 
