@@ -1,5 +1,8 @@
-<h1>New resume</h1>
+<%= simple_nested_form_for [@candidate, @resume], html: {multipart: true, class: "form-horizontal" } do |f| %>
 
-<%= render 'form' %>
+	<div class="controls">
+	  <%= f.file_field :file, label: "Resume" if resume_form.object.file %>
+	</div>
 
-<%= link_to 'Back', resumes_path %>
+  	<%= f.button :submit, 'Submit', class: "btn-primary controls" %>
+<% end %>

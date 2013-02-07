@@ -7,18 +7,18 @@ Ats::Application.routes.draw do
 
   match '/about', to: "static_pages#about"
 
-  match '/logout', to: "sessions#destroy"
-  match '/login', to: "sessions#new"
-  match '/signup', to: "users#new"
-  # match '/users', to: "sessions#new"
+  get '/signup', to: "users#new"
+  get '/login', to: "sessions#new"
+  get '/logout', to: "sessions#destroy"
+  get '/users', to: "sessions#new"
   
+  resources :users
+  resources :sessions
+
   resources :candidates do
     resources :resumes
   end
     
-  resources :users
-  resources :sessions
-
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

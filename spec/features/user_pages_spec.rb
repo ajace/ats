@@ -2,7 +2,6 @@ require 'spec_helper'
 
 user = FactoryGirl.create(:user)
 
-# fix user creation. it's not creating a unique user; install DatabaseCleaner Gem?
 feature 'User signs in' do
   	scenario 'with valid email and password' do
   		visit '/login'

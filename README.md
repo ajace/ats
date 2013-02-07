@@ -20,6 +20,8 @@ Shoulda
 Factory Girl  
 Guard  
 Spork  
+  
+Responsive design via Bootstrap {this is definitely a feature I wish the larger ATS systems had since I work from my phone at times}
 
 ## PLANNED FEATURES
 
