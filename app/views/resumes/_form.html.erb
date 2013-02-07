@@ -1,10 +1,8 @@
-<%= simple_form_for(@resume) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for [@candidate, @resume], html: {multipart: true, class: "form-horizontal" } do |f| %>
 
-  <div class="form-inputs">
-  </div>
+	<div class="controls">
+	  <%= f.file_field :file, label: "Resume" if resume_form.object.file %>
+	</div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  	<%= f.button :submit, 'Submit', class: "btn-primary controls" %>
 <% end %>
