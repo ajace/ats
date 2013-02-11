@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-user = FactoryGirl.create(:user)
+user = FactoryGirl.build(:user)
 
 feature 'User signs in' do
   	scenario 'with valid email and password' do
@@ -25,13 +25,13 @@ feature "Create new user" do
   	end
 
   	scenario "with an invalid password" do
-  		visit 'users/new'
-  		fill_in 'Name', with: :name
-  		fill_in 'Email', with: :email
+  		visit new_user_path(user)
+  		fill_in 'Name', with: user.name
+  		fill_in 'Email', with: user.email
   		fill_in 'user_password', with: "short"
   		fill_in 'user_password_confirmation', with: "short"
   		click_button "Submit"
-  		page.should have_content 'Invalid email or password'
+  		page.should have_content 'Passwordis too short'
   	end
 
     # save_and_open_page
