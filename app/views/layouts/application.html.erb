@@ -11,6 +11,11 @@
     <%= render 'layouts/nav' %>
 
     <div class="container">
+
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "alert alert-#{key}", :"data-dismiss" => "alert") %>
+      <% end %>
+
       <%= yield %>
 
       <br>

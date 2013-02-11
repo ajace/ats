@@ -1,12 +1,5 @@
 <header><h2>Log In</h2></header>
 
-<% if flash[:error] %>
-<div class="alert alert-notice">
-	<%= flash[:error] %>
-	<a class="close" data-dismiss="alert">x</a>
-</div>
-<% end %>
-
 <%= form_tag sessions_path, class: "form-horizontal" do %>
 	<div class="control-group">
 		<div class="control-label"> <%= label_tag :email %></div>

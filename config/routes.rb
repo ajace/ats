@@ -13,7 +13,7 @@ Ats::Application.routes.draw do
   get '/users', to: "sessions#new"
   
   resources :users
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
 
   resources :candidates do
     resources :resumes
