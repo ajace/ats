@@ -2,18 +2,17 @@ Ats::Application.routes.draw do
 
   resources :jobs
 
-
   root to: "candidates#index"
 
   match '/about', to: "static_pages#about"
-
-  get '/signup', to: "users#new"
-  get '/login', to: "sessions#new"
-  get '/logout', to: "sessions#destroy"
-  get '/users', to: "sessions#new"
   
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signup', to: "users#new"
+  match '/login', to: "sessions#new"
+  match '/logout', to: "sessions#destroy"
+  get '/users', to: "sessions#new"
 
   resources :candidates do
     resources :resumes

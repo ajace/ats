@@ -20,6 +20,7 @@ feature "Candidate fills in new application" do
 		fill_in 'Email', with: ""
 		fill_in 'Phone', with: candidate.phone
 		fill_in 'Position', with: candidate.position
+		click_button "Submit"
 		page.should_not have_content('Successfully submitted')
 	end
 

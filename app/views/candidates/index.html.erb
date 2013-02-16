@@ -1,13 +1,11 @@
-<%- model_class = Candidate -%>
-
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:phone) %></th>
-      <th><%= model_class.human_attribute_name(:position) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Position</th>
+      <th>Date</th>
       <th>Resume</th>
       <th></th>
     </tr>
@@ -32,8 +30,6 @@
     <% end %>
   </tbody>
 </table>
-
-
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_candidate_path,

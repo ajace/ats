@@ -15,13 +15,12 @@
       <% if current_user %>
         Logged in as <%= current_user.name %>  
       <% end %>
-      <a class="" href="
+      
         <% if current_user %>
-          <%= logout_path %>">...Log Out</a>
+          <%= link_to "...Log Out", logout_path, method: "delete" %>
           <% else %>
-          <%= login_path %>">Admin Log In</a>
+          <%= link_to "Admin Log In", login_path %>
         <% end %>
-      </a>
     </div>
   </div>
 </div>
