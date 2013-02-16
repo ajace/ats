@@ -4,8 +4,8 @@
 
     <% if current_user %>
       <ul class="nav">
-        <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Candidates", root_path %></li>
-        <li class="<%= 'active' if current_page?(jobs_path) %>"><%= link_to "Jobs", jobs_path %></li>
+        <li class="<%= 'active' if params[:controller] == 'candidates' %>"><a href="/candidates">Candidates</a></li>
+        <li class="<%= 'active' if params[:controller] == 'jobs' %>"><a href="/jobs">Jobs</a></li>
       </ul>
     <% end %>
 
