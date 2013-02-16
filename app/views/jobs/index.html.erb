@@ -1,20 +1,13 @@
-<h1>Listing jobs</h1>
-
 <table>
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>Candidate</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @jobs.each do |job| %>
   <tr>
     <td><%= job.name %></td>
     <td><%= job.description %></td>
-    <td><%= job.candidate_id %></td>
     <td><%= link_to 'Show', job %></td>
     <td><%= link_to 'Edit', edit_job_path(job) %></td>
     <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>

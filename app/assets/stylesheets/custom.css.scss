@@ -76,7 +76,26 @@ $grayMediumLight: #eaeaea;
 
 .navbar {
   background-color: black;
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
   color: white;
+  
+  li {
+    display: inline-block;
+    margin: 0 2px;
+    a, a:link, a:visited {
+      text-decoration: none;
+    }
+    &.active {
+      margin-bottom: -1px;
+      a,
+      a:link,
+      a:visited {
+        font-weight: bold; 
+      }
+    } 
+  }
 }
 
 

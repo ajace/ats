@@ -3,11 +3,9 @@
     <a class="brand" href="/">Company</a>
 
     <% if current_user %>
-      <ul class="nav nav-pills">
-        <li class="active">
-          <a href="<%= root_path %>">Candidates</a>
-        </li>
-        <li><a href="#">Jobs</a></li>
+      <ul class="nav">
+        <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Candidates", root_path %></li>
+        <li class="<%= 'active' if current_page?(jobs_path) %>"><%= link_to "Jobs", jobs_path %></li>
       </ul>
     <% end %>
 
