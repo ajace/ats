@@ -1,22 +1,15 @@
-<%= simple_nested_form_for @candidate, html: {multipart: true, class: "form-horizontal" } do |f| %>
+<%= simple_nested_form_for @candidate, remote: true, html: {multipart: true, class: "form-horizontal" } do |f| %>
 
     <%= f.fields_for :resume, html: {class: "control-group"} do |resume_form| %>
-    
+      
       <% if resume_form.object.file? %>
-        <div class="controls">
+        <div class="controls" id="resume">
           <%= resume_form.object.file.url.split("/").last %>      
-          <%= resume_form.link_to_remove "Remove this file" %><br><br> 
-        </div>
-        <% else %>
-        <div class="controls">
-          <%= resume_form.file_field :file, label: "Resume" if resume_form.object.file %>
-        </div>
+          <%= link_to "Remove this file", candidate_resume_path(@candidate), method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
+          <br><br> 
+        </div>        
       <% end %>
-
     <% end %> 
-  
-  <%= f.link_to_add "Add resume", :resume, class: "controls" %>
-  
 
   <%= f.input :name %>
   <%= f.input :email, :required => false %>
@@ -25,7 +18,5 @@
   <%= f.input :cover_letter %>
 
   <%= f.button :submit, 'Submit', class: "btn-primary controls" %>
-
-  <!-- <%= submit_tag 'Cancel', :type => :reset, :class => "btn btn-danger" %> create custom link-->
 
 <% end %>

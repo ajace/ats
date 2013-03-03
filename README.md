@@ -8,7 +8,8 @@ Route public career page to '/candidates/new'
 ## Environment
 Rails  
 PostgreSQL  
-Twitter Bootstrap  
+Twitter Bootstrap
+jQuery  
 
 Simple_form  
 Carrierwave  

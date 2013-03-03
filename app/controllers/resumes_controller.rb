@@ -1,7 +1,6 @@
 class ResumesController < ApplicationController
 
-  before_filter :get_candidate
-  #, except: [:new, :create, :show]
+  before_filter :get_candidate, except: [:new, :show]
 
   def get_candidate
      @candidate  = Candidate.find(params[:candidate_id]) if params[:candidate_id]
@@ -28,7 +27,10 @@ class ResumesController < ApplicationController
     @resume = @candidate.resume.build(params[:candidate_id])
 
     if @resume.save
-      redirect_to candidate_path(@candidate), notice: "Successfully updated resume"
+      respond_to do |format|
+        format.html { redirect_to candidate_path(@candidate), notice: "Successfully updated resume" }
+        format.js
+      end
     else
       render :new
     end
@@ -39,7 +41,10 @@ class ResumesController < ApplicationController
     @resume = @candidate.resume
 
     if @resume.update_attributes(params[:resume])
-      redirect_to candidate_path(@candidate), notice: 'Resume was successfully updated.'
+      respond_to do |format|
+        format.html {redirect_to candidate_path(@candidate), notice: 'Resume was successfully updated.'}
+        format.js
+      end
     else
       render action: "edit"
     end
@@ -50,7 +55,10 @@ class ResumesController < ApplicationController
     @resume = @candidate.resume
     @resume.destroy
 
-    redirect_to candidate_path(@candidate)
+    respond_to do |format|
+      format.html { redirect_to candidate_path(@candidate) }
+      format.js
+    end
   end
 
 end
